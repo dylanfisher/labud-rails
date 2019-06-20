@@ -7,8 +7,11 @@
 // Colors
 $white: #FFFFFF;
 $black: #000000;
+$blue: #4B54B3;
+$pale-yellow: #FFF4E3;
 
 // Color assignments
+$brand-color: $blue;
 
 // Transitions
 $tt: 0.2s;
@@ -17,7 +20,9 @@ $tt: 0.2s;
 $gutter: 15px;
 
 $site-max-width: 1400px;
-$site-padding-sm: 30px;
+$site-padding-sm: 15px;
+$site-padding-md: 5vw;
+$site-padding-xl: 60px;
 
 $block-margin: 50px;
 $block-margin-sm: 80px;
@@ -29,7 +34,9 @@ $screen-xs: 0;
 $screen-sm: 576px;
 $screen-md: 768px;
 $screen-lg: 992px;
-$screen-xl: 1200px;
+$screen-xl: 1400px;
+
+$vert-screen-sm: 600px;
 
 $grid-breakpoints: (
   xs: $screen-xs,
@@ -39,4 +46,9 @@ $grid-breakpoints: (
   xl: $screen-xl
 );
 
-$vert-screen-sm: 600px;
+$container-max-widths: (
+  sm: $screen-sm - 36px,
+  md: $screen-md - 48px,
+  lg: $screen-lg - 32px,
+  xl: $screen-xl - 60px
+);

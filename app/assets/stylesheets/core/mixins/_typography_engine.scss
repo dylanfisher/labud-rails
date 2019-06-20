@@ -1,15 +1,17 @@
 // Font stacks
-$default: sans-serif;
+$ClassicoURWTOT-Regular: ClassicoURWTOT-Regular, serif;
+$ClassicoURW-Med: ClassicoURW-Med, serif;
+$MonumentGrotesk-Regular: MonumentGrotesk-Regular, sans-serif;
+$MonumentGrotesk-Bold: MonumentGrotesk-Bold, sans-serif;
 
-// Body text
 @mixin body-text {
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: 0;
   line-height: 1.4;
-  font-family: $default;
+  font-family: $MonumentGrotesk-Regular;
 
   @include breakpoint(sm) {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 .body-text { @include body-text; }
@@ -17,3 +19,79 @@ $default: sans-serif;
 @mixin default-font {
   @include body-text;
 }
+
+@mixin small-body-text {
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.43;
+  font-family: $MonumentGrotesk-Regular;
+
+  @include breakpoint(sm) {
+    font-size: 16px;
+  }
+}
+.small-body-text { @include small-body-text; }
+
+@mixin nav-text {
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  font-family: $ClassicoURWTOT-Regular;
+
+  @include breakpoint(sm) {
+    font-size: 32px;
+  }
+}
+.nav-text { @include nav-text; }
+
+@mixin small-title {
+  font-size: 21px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  font-family: $ClassicoURW-Med;
+
+  @include breakpoint(sm) {
+    font-size: 27px;
+  }
+}
+.small-title { @include small-title; }
+
+@mixin medium-title {
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 1.16;
+  font-family: $ClassicoURWTOT-Regular;
+
+  @include breakpoint(sm) {
+    font-size: 36px;
+  }
+}
+.medium-title { @include medium-title; }
+
+@mixin bold-title {
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 1.16;
+  font-family: $ClassicoURW-Med;
+
+  @include breakpoint(sm) {
+    font-size: 36px;
+  }
+}
+.bold-title { @include bold-title; }
+
+@mixin jumbo-title {
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 0.96;
+  font-family: $ClassicoURWTOT-Regular;
+
+  @include breakpoint(sm) {
+    font-size: 6.3vw;
+  }
+
+  @include breakpoint(xl) {
+    font-size: 93px;
+  }
+}
+.jumbo-title { @include jumbo-title; }

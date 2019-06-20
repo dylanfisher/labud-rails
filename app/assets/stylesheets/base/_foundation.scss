@@ -3,3 +3,21 @@
 html {
   @include default-font;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.application-wrapper {
+  padding-top: 175px;
+
+  .controller--home_pages & {
+    padding-top: 0;
+  }
+}
+
+.hero {
+  height: 100vh;
+}

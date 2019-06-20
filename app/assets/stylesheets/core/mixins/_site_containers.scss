@@ -13,12 +13,28 @@
   @include breakpoint(sm) {
     padding-left: $site-padding-sm;
   }
+
+  @include breakpoint(md) {
+    padding-left: $site-padding-md;
+  }
+
+  @include breakpoint(xl) {
+    padding-left: $site-padding-xl;
+  }
 }
 .site-padding-left { @include site-padding-left; }
 
 @mixin site-padding-right {
   @include breakpoint(sm) {
     padding-right: $site-padding-sm;
+  }
+
+  @include breakpoint(md) {
+    padding-right: $site-padding-md;
+  }
+
+  @include breakpoint(xl) {
+    padding-right: $site-padding-xl;
   }
 }
 .site-padding-right { @include site-padding-right; }

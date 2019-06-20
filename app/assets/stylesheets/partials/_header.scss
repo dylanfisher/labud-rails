@@ -1,0 +1,42 @@
+// Header
+
+.header {
+  .controller--home_pages & {
+    color: $white;
+  }
+}
+
+.header__home-link,
+.header__about-link {
+  position: absolute;
+  top: 60px;
+  z-index: 10;
+}
+
+.header__home-link {
+  left: 60px;
+
+  &:hover {
+    .header__logo-label {
+      @include link-hover;
+    }
+  }
+}
+
+.header__about-link {
+  right: 60px;
+}
+
+.header__logo {
+  path {
+    .controller--home_pages & {
+      fill: $white;
+    }
+  }
+}
+
+.header__logo-label {
+  display: inline-block;
+  margin-top: 0.1em;
+  margin-left: 10px;
+}

@@ -1,0 +1,20 @@
+// Images
+
+.bg-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 0;
+}
+
+.bg-image-landscape {
+  padding-bottom: 300px;
+
+  @include breakpoint(md) {
+    padding-bottom: 450px;
+  }
+
+  @include breakpoint(xl) {
+    padding-bottom: 550px;
+  }
+}

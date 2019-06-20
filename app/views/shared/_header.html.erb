@@ -1,0 +1,7 @@
+<header id="header" class="header nav-text">
+  <%= link_to root_path, class: 'header__home-link blank-link', rel: 'home' do %>
+    <%= embedded_svg 'labud-logo', class: 'header__logo' %>
+    <div class="header__logo-label">Labud</div>
+  <% end %>
+  <%= link_to 'About', '/about', class: 'header__about-link blank-link-hover' %>
+</header>

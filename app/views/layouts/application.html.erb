@@ -8,8 +8,8 @@
     <%= javascript_include_tag 'forest/application_public' %>
   </head>
   <body class="<%= @body_classes.try(:join, ' ') %>">
+    <%= render 'shared/header' %>
     <main id="application-wrapper" class="application-wrapper">
-      <%= render 'shared/header' %>
       <%= yield %>
     </main>
     <%= render 'shared/footer' %>
