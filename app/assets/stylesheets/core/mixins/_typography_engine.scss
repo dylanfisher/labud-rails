@@ -80,6 +80,18 @@ $MonumentGrotesk-Bold: MonumentGrotesk-Bold, sans-serif;
 }
 .bold-title { @include bold-title; }
 
+@mixin large-title {
+  font-size: 38px;
+  letter-spacing: 0;
+  line-height: 1;
+  font-family: $ClassicoURWTOT-Regular;
+
+  @include breakpoint(sm) {
+    font-size: 60px;
+  }
+}
+.large-title { @include large-title; }
+
 @mixin jumbo-title {
   font-size: 32px;
   letter-spacing: 0;

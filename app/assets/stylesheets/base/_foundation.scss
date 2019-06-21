@@ -11,13 +11,16 @@ body {
 }
 
 .application-wrapper {
-  padding-top: 175px;
-
-  .controller--home_pages & {
-    padding-top: 0;
-  }
+  padding-top: $header-offset;
 }
 
 .hero {
   height: 100vh;
+  margin-top: -$header-offset;
+}
+
+.image-container {
+  background-color: $white;
+  padding-top: $gutter;
+  padding-bottom: $gutter;
 }
