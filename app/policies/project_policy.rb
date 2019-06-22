@@ -1,0 +1,2 @@
+class ProjectPolicy < BlockRecordPolicy
+end

@@ -1,0 +1,16 @@
+// Project show
+
+.project__metadata {
+  h2 {
+    font-weight: bold;
+    margin-top: 1.4em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  ul {
+    @include blank-list;
+  }
+}

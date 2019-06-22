@@ -7,7 +7,7 @@
     <%= jquery_include_tag %>
     <%= javascript_include_tag 'forest/application_public' %>
   </head>
-  <body class="<%= @body_classes.try(:join, ' ') %>">
+  <body class="<%= @body_classes.try(:join, ' ') %>" style="<%= @body_styles.try(:join, ' ') %>">
     <%= render 'shared/header' %>
     <main id="application-wrapper" class="application-wrapper">
       <%= yield %>

@@ -1,0 +1,26 @@
+<p>Find me in app/views/forest/projects/show.html.erb</p>
+
+<%# content_for :page_description, @project.description if @project.try(:description).present? %>
+
+<p>
+  <b>Title</b>
+  <%= @project.title %>
+</p>
+<p>
+  <b>Subtitle</b>
+  <%= @project.subtitle %>
+</p>
+<p>
+  <b>Description</b>
+  <%= @project.description %>
+</p>
+<p>
+  <b>Metadata</b>
+  <%= @project.metadata %>
+</p>
+<p>
+  <b>Media Item</b>
+  <%= @project.media_item %>
+</p>
+
+<%= render_blocks @project %>

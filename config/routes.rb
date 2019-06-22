@@ -4,5 +4,9 @@ Rails.application.routes.draw do
 
   get '/about', to: 'static_pages#about'
 
-  get '/projects/jonesy', to: 'project_pages#jonesy'
+  resources :projects, only: [:index, :show]
+
+  namespace :admin do
+    resources :projects
+  end
 end
