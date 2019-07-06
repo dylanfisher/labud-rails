@@ -8,12 +8,10 @@
           <th></th>
         <% end %>
         <th><%= table_sorter title: 'ID', path: :admin_projects_path, scope: :by_id, default_order: :desc %></th>
+        <th>Media Item</th>
         <th><%= table_sorter title: 'Slug', path: :admin_projects_path, scope: :by_slug, default_order: :asc %></th>
         <th>Title</th>
         <th>Subtitle</th>
-        <th>Description</th>
-        <th>Metadata</th>
-        <th>Media Item</th>
         <th><%= table_sorter title: 'Created&nbsp;at'.html_safe, path: :admin_projects_path, scope: :by_created_at, default_order: :desc %></th>
         <th><%= table_sorter title: 'Updated&nbsp;at'.html_safe, path: :admin_projects_path, scope: :by_updated_at, default_order: :desc %></th>
         <th colspan="3"></th>
@@ -27,12 +25,10 @@
             <td><%= status_indicator project %></td>
           <% end %>
           <td><%= project.id %></td>
+          <td><%= table_thumbnail project.media_item %></td>
           <td><%= project.slug %></td>
           <td><%= project.title %></td>
           <td><%= project.subtitle %></td>
-          <td><%= project.description %></td>
-          <td><%= project.metadata %></td>
-          <td><%= project.media_item_id %></td>
           <td><%= forest_date project.created_at %></td>
           <td><%= forest_date project.updated_at %></td>
           <td width="1"><%= link_to 'Edit', edit_admin_project_path(project), class: 'btn btn-xs btn-primary', role: 'button' %></td>

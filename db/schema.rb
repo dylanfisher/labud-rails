@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_22_153957) do
+ActiveRecord::Schema.define(version: 2019_07_06_174628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,26 @@ ActiveRecord::Schema.define(version: 2019_06_22_153957) do
 
   create_table "code_blocks", force: :cascade do |t|
     t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "collage_block_items", force: :cascade do |t|
+    t.bigint "media_item_id", null: false
+    t.bigint "collage_block_id", null: false
+    t.decimal "collage_position_left"
+    t.decimal "collage_position_top"
+    t.decimal "collage_item_width"
+    t.decimal "collage_item_height"
+    t.integer "collage_z_index"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collage_block_id"], name: "index_collage_block_items_on_collage_block_id"
+    t.index ["media_item_id"], name: "index_collage_block_items_on_media_item_id"
+  end
+
+  create_table "collage_blocks", force: :cascade do |t|
+    t.decimal "collage_height_ratio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -171,7 +191,9 @@ ActiveRecord::Schema.define(version: 2019_06_22_153957) do
     t.string "value_type", default: "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["slug"], name: "index_settings_on_slug", unique: true
+    t.string "locale"
+    t.index ["locale", "slug"], name: "index_settings_on_locale_and_slug", unique: true
+    t.index ["locale"], name: "index_settings_on_locale"
   end
 
   create_table "small_text_blocks", force: :cascade do |t|
@@ -233,6 +255,8 @@ ActiveRecord::Schema.define(version: 2019_06_22_153957) do
 
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
+  add_foreign_key "collage_block_items", "collage_blocks"
+  add_foreign_key "collage_block_items", "media_items"
   add_foreign_key "image_pair_blocks", "media_items"
   add_foreign_key "image_pair_blocks", "media_items", column: "media_item_two_id"
   add_foreign_key "large_image_blocks", "media_items"
