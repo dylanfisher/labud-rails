@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.association :media_item, as: :image %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.input :col_size, as: :select, collection: f.object.class.col_sizes.collect { |k, v| [k.titleize, k] }, include_blank: false %>
+    <%= f.input :col_offset, as: :select, collection: f.object.class.col_offsets.collect { |k, v| [k.titleize, k] }, include_blank: false %>
+  </div>
+</div>

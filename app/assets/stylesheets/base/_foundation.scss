@@ -14,9 +14,24 @@ body {
   padding-top: $header-offset;
 }
 
+.hero,
+.image-hero {
+  margin-top: -$header-offset;
+  text-align: center;
+}
+
 .hero {
   height: 100vh;
-  margin-top: -$header-offset;
+}
+
+.image-hero {
+  height: 90vh;
+  max-height: 700px;
+
+  img {
+    max-height: 100%;
+    padding: 100px 0 50px;
+  }
 }
 
 .image-container {

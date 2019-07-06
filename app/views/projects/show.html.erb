@@ -1,12 +1,6 @@
-<% cache [@project], expires_in: 4.weeks do %>
-  <div class="site-container">
-    <div class="container-fluid">
-      <div class="row hero">
-        <div class="col-sm-12 text-center my-auto">
-          <%= lazy_image @project.media_item %>
-        </div>
-      </div>
-    </div>
+<% cache [@project], expires_in: 1.day do %>
+  <div class="image-hero">
+    <%= image_tag @project.media_item.attachment.url(:large) %>
   </div>
   <div class="site-container mb-6">
     <div class="container-fluid">

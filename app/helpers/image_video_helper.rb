@@ -5,6 +5,7 @@ module ImageVideoHelper
     easein = options.fetch(:easein, true)
 
     alt = options.delete(:alt) || media_item.alternative_text
+    skip_jump_fix = options.delete(:skip_jump_fix)
 
     options.merge!(alt: alt) if alt.present?
 
@@ -12,7 +13,6 @@ module ImageVideoHelper
     index = [styles.find_index { |k, v| k == size }, 2].max
     size_mobile = options.delete(:size_mobile) || (size == :large ? styles.keys[index - 1] : size)
 
-    easein_class = easein ? 'lazy-image--easein' : ''
     expand = easein ? -100 : nil
 
     data.merge!(src: media_item.attachment.url(size),
@@ -26,7 +26,7 @@ module ImageVideoHelper
       options.delete(:alt)
       content_tag :div,
                   nil,
-                  class: "lazy-image lazy-image--background lazyload #{easein_class} #{options.delete(:class)}",
+                  class: "lazy-image lazy-image--background lazyload #{options.delete(:class)}",
                   role: 'img',
                   data: {
                     bg: data.delete(:src),
@@ -36,10 +36,10 @@ module ImageVideoHelper
                   **options
     else
       image_content = capture do
-        image_tag uri_image_placeholder, class: "lazy-image lazyload #{easein_class} #{options.delete(:class)}", data: data, **options
+        image_tag uri_image_placeholder, class: "lazy-image lazyload #{options.delete(:class)}", data: data, **options
       end
 
-      if options[:skip_jump_fix]
+      if skip_jump_fix
         image_content
       else
         image_jump_fix media_item, class: options.delete(:wrapper_class) do

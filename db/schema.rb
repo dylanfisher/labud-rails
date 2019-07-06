@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_06_174628) do
+ActiveRecord::Schema.define(version: 2019_07_06_181315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 2019_07_06_174628) do
   create_table "divider_blocks", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "image_blocks", force: :cascade do |t|
+    t.bigint "media_item_id", null: false
+    t.integer "col_size"
+    t.integer "col_offset"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_image_blocks_on_media_item_id"
   end
 
   create_table "image_pair_blocks", force: :cascade do |t|
@@ -257,6 +266,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_174628) do
   add_foreign_key "block_slots", "block_layouts"
   add_foreign_key "collage_block_items", "collage_blocks"
   add_foreign_key "collage_block_items", "media_items"
+  add_foreign_key "image_blocks", "media_items"
   add_foreign_key "image_pair_blocks", "media_items"
   add_foreign_key "image_pair_blocks", "media_items", column: "media_item_two_id"
   add_foreign_key "large_image_blocks", "media_items"
