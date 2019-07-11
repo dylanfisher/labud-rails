@@ -1,0 +1,23 @@
+<div class="admin-header">
+  <div class="well">
+    <h1>
+      <%= image_tag 'svg/labud-logo.svg', style: 'vertical-align: top; margin-right: 5px;' %>
+      Dashboard
+      <span class="badge" title="<%= number_with_delimiter(@admin_resources.count) %> total resources"><%= number_with_delimiter @admin_resources.count %></span>
+    </h1>
+  </div>
+</div>
+
+<% @_rendered_resources = [] %>
+
+<%= render 'admin/dashboard/panel',
+           title: 'Projects',
+           resources: [Project] %>
+
+<%= render 'admin/dashboard/panel',
+           title: 'Content',
+           resources: [Page, MediaItem] %>
+
+<%= render 'admin/dashboard/panel',
+           title: 'Admin',
+           resources: @admin_resources - @_rendered_resources %>

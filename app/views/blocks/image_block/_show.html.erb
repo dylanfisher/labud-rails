@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <%= content_tag :div, class: "#{block.columnable_css_class} text-center" do %>
-        <%= lazy_image block.media_item, class: 'image-block__image' %>
+        <%= lazy_image block.media_item, class: 'image-block__image', constrained_height: true %>
       <% end %>
     </div>
   </div>

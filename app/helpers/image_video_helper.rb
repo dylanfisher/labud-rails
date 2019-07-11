@@ -4,11 +4,9 @@ module ImageVideoHelper
     data = options.delete(:data) || {}
     easein = options.fetch(:easein, true)
 
-    width = media_item.try(:dimensions).try(:[], :width)
-    height = media_item.try(:dimensions).try(:[], :height)
-
     alt = options.delete(:alt) || media_item.alternative_text
     skip_jump_fix = options.delete(:skip_jump_fix)
+    constrained_height = options.delete(:constrained_height)
 
     options.merge!(alt: alt) if alt.present?
 
@@ -45,8 +43,16 @@ module ImageVideoHelper
       if skip_jump_fix
         image_content
       else
-        image_jump_fix media_item, class: options.delete(:wrapper_class) do
-          image_content
+        if constrained_height
+          content_tag :div, class: 'constrained-height-image', style: "max-width: #{media_item.aspect_ratio * 100}vh;" do
+            image_jump_fix media_item, class: options.delete(:wrapper_class) do
+              image_content
+            end
+          end
+        else
+          image_jump_fix media_item, class: options.delete(:wrapper_class) do
+            image_content
+          end
         end
       end
     end
