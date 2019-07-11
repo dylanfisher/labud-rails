@@ -5,7 +5,7 @@ class Project < Forest::ApplicationRecord
 
   belongs_to :media_item
 
-  # def self.resource_description
-  #   'Briefly describe this resource.'
-  # end
+  def self.resource_description
+    'Labud\'s projects!'
+  end
 end

@@ -4,6 +4,9 @@ module ImageVideoHelper
     data = options.delete(:data) || {}
     easein = options.fetch(:easein, true)
 
+    width = media_item.try(:dimensions).try(:[], :width)
+    height = media_item.try(:dimensions).try(:[], :height)
+
     alt = options.delete(:alt) || media_item.alternative_text
     skip_jump_fix = options.delete(:skip_jump_fix)
 
