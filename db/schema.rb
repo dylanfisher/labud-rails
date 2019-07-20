@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_20_163800) do
+ActiveRecord::Schema.define(version: 2019_07_20_171719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -234,6 +234,7 @@ ActiveRecord::Schema.define(version: 2019_07_20_163800) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "page_color"
+    t.string "url"
     t.index ["blockable_metadata"], name: "index_projects_on_blockable_metadata", using: :gin
     t.index ["media_item_id"], name: "index_projects_on_media_item_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true

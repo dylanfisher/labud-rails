@@ -10,6 +10,10 @@ body {
   min-height: 100vh;
 }
 
+.turbolinks-progress-bar {
+  background-color: $black;
+}
+
 .application-wrapper {
   padding-top: $header-offset;
 }

@@ -8,6 +8,11 @@
         <div class="col-sm-8">
           <%= content_tag :div, md(@project.subtitle), class: 'large-title mb-3' if @project.subtitle.present? %>
           <%= content_tag :div, md(@project.description) if @project.description.present? %>
+          <% if @project.url.present? %>
+            <div class="mt-4">
+              <%= link_to @project.pretty_website_url, @project.url, class: 'background-color-link' %>
+            </div>
+          <% end %>
         </div>
         <div class="project__metadata col-sm-3 offset-sm-1 small-body-text">
           <%= md @project.metadata %>

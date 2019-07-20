@@ -24,6 +24,7 @@
               <div class="col-sm-6">
                 <%= render 'admin/form_inputs/status', f: f, record: @project %>
                 <%= f.input :page_color, as: :color, default: '#ffffff' %>
+                <%= f.input :url, label: 'Website URL' %>
                 <%= f.input :metadata, markdown: true %>
                 <%= f.association :media_item, as: :image %>
               </div>

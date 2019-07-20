@@ -48,15 +48,15 @@
   border-bottom: 3px solid $brand-color;
   color: inherit;
   position: relative;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-bottom: 0.2em;
+  padding: 5px 3px 0.2em;
   transition: color 0.3s;
+  display: inline-block;
+  overflow: hidden;
 
   &:before {
     content: '';
     position: absolute;
-    top: -3px;
+    top: 0;
     left: 0;
     height: calc(1.4em + 3px);
     width: 100%;
@@ -65,15 +65,25 @@
     transform: scaleY(0);
     transform-origin: bottom;
     background-color: $brand-color;
+    z-index: -1;
   }
 
   &:hover {
     color: $white;
 
     &:before {
-      z-index: -1;
       transform: scaleY(1);
     }
   }
 }
 .highlight-link { @include highlight-link; }
+
+@mixin background-color-link {
+  color: $white;
+  background-color: $black;
+  text-decoration: none;
+  padding: 0.2em 0.6em 0.3em;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+.background-color-link { @include background-color-link; }
