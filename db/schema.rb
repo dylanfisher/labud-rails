@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_06_181315) do
+ActiveRecord::Schema.define(version: 2019_07_20_144106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,6 +174,54 @@ ActiveRecord::Schema.define(version: 2019_07_06_181315) do
     t.index ["status"], name: "index_pages_on_status"
   end
 
+  create_table "project_feature_block_slide1s", force: :cascade do |t|
+    t.bigint "project_feature_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_project_feature_block_slide1s_on_media_item_id"
+    t.index ["project_feature_block_id"], name: "index_project_feature_block_slide1s_on_project_feature_block_id"
+  end
+
+  create_table "project_feature_block_slide2s", force: :cascade do |t|
+    t.bigint "project_feature_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_project_feature_block_slide2s_on_media_item_id"
+    t.index ["project_feature_block_id"], name: "index_project_feature_block_slide2s_on_project_feature_block_id"
+  end
+
+  create_table "project_feature_block_slide3s", force: :cascade do |t|
+    t.bigint "project_feature_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_project_feature_block_slide3s_on_media_item_id"
+    t.index ["project_feature_block_id"], name: "index_project_feature_block_slide3s_on_project_feature_block_id"
+  end
+
+  create_table "project_feature_block_slide4s", force: :cascade do |t|
+    t.bigint "project_feature_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_project_feature_block_slide4s_on_media_item_id"
+    t.index ["project_feature_block_id"], name: "index_project_feature_block_slide4s_on_project_feature_block_id"
+  end
+
+  create_table "project_feature_blocks", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_feature_blocks_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
@@ -270,5 +318,14 @@ ActiveRecord::Schema.define(version: 2019_07_06_181315) do
   add_foreign_key "image_pair_blocks", "media_items"
   add_foreign_key "image_pair_blocks", "media_items", column: "media_item_two_id"
   add_foreign_key "large_image_blocks", "media_items"
+  add_foreign_key "project_feature_block_slide1s", "media_items"
+  add_foreign_key "project_feature_block_slide1s", "project_feature_blocks"
+  add_foreign_key "project_feature_block_slide2s", "media_items"
+  add_foreign_key "project_feature_block_slide2s", "project_feature_blocks"
+  add_foreign_key "project_feature_block_slide3s", "media_items"
+  add_foreign_key "project_feature_block_slide3s", "project_feature_blocks"
+  add_foreign_key "project_feature_block_slide4s", "media_items"
+  add_foreign_key "project_feature_block_slide4s", "project_feature_blocks"
+  add_foreign_key "project_feature_blocks", "projects"
   add_foreign_key "projects", "media_items"
 end

@@ -32,6 +32,19 @@ $MonumentGrotesk-Bold: MonumentGrotesk-Bold, sans-serif;
 }
 .small-body-text { @include small-body-text; }
 
+@mixin caption {
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 0.96;
+  font-family: $MonumentGrotesk-Regular;
+
+  @include breakpoint(sm) {
+    font-size: 14px;
+  }
+}
+.caption { @include caption; }
+
+
 @mixin nav-text {
   font-size: 24px;
   letter-spacing: 0;

@@ -14,6 +14,6 @@ class TitleBlock < BaseBlock
   end
 
   def css_class
-    'mb-5'
+    'mb-4'
   end
 end

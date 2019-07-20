@@ -1,4 +1,4 @@
-<div class="dark-color-scheme">
+<div class="dark-color-scheme mb-7">
   <div class="site-container">
     <div class="container-fluid">
       <div class="row hero">
@@ -12,12 +12,6 @@
   </div>
 </div>
 
-<div class="site-container mt-5">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-10 offset-sm-1 medium-title">
-        <%= link_to 'Jonesy', '/projects/jonesy', class: 'default-link' %>
-      </div>
-    </div>
-  </div>
-</div>
+<% cache [@page, 'blocks'], expires_in: 1.day do %>
+  <%= render_blocks @page %>
+<% end %>

@@ -1,0 +1,28 @@
+<div class="row form-group">
+  <div class="col-sm-6">
+    <%= f.association :project %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.input :text, markdown: true %>
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-sm-6">
+    <label>Column 1</label>
+    <%= f.association :media_item_1s, as: :gallery %>
+  </div>
+  <div class="col-sm-6">
+    <label>Column 2</label>
+    <%= f.association :media_item_2s, as: :gallery %>
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-sm-6">
+    <label>Column 3</label>
+    <%= f.association :media_item_3s, as: :gallery %>
+  </div>
+  <div class="col-sm-6">
+    <label>Column 4</label>
+    <%= f.association :media_item_4s, as: :gallery %>
+  </div>
+</div>

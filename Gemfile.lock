@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dylanfisher/forest.git
-  revision: 8a8013265f977d8ec5d3f2c809b827adbcd51d5b
+  revision: f523912d8d37adf8a393a3022312d6ff0da773fb
   specs:
-    forest (0.107.1)
+    forest (0.108.0)
       aws-sdk-s3
       bootstrap-sass
       cocoon
@@ -83,7 +83,7 @@ GEM
     autoprefixer-rails (9.6.1)
       execjs
     aws-eventstream (1.0.3)
-    aws-partitions (1.187.0)
+    aws-partitions (1.190.0)
     aws-sdk-core (3.59.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
@@ -300,7 +300,7 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
-    zeitwerk (2.1.8)
+    zeitwerk (2.1.9)
 
 PLATFORMS
   ruby

@@ -1,0 +1,24 @@
+<div class="site-container">
+  <div class="container-fluid">
+    <%= link_to project_path(block.project.to_friendly_param), class: 'blank-link' do %>
+      <div class="row mb-4">
+        <% 4.times do |i| %>
+          <div class="project-feature-block__column col-sm-3">
+            <% block.send("media_item_#{i+1}s").each_with_index do |media_item, index| %>
+              <%= lazy_image media_item, background: true, size: :small, class: "project-feature-block__slide bg-image bg-image-square #{'active' if index.zero?}" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-sm-9 col-md-6">
+        <%= content_tag :h2, class: 'small-title mb-2' do %>
+          <%= link_to md(block.project.title), project_path(block.project.to_friendly_param), class: 'blank-link' %>
+        <% end %>
+        <%= content_tag :div, md(block.text), class: 'small-body-text mb-2' %>
+        <%= link_to 'View Case Study', project_path(block.project.to_friendly_param), class: 'caption highlight-link' %>
+      </div>
+    </div>
+  </div>
+</div>

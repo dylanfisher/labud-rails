@@ -1,0 +1,13 @@
+// Project Feature Block
+
+.project-feature-block {
+
+}
+
+.project-feature-block__slide {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
