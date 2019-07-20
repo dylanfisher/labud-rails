@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_20_171719) do
+ActiveRecord::Schema.define(version: 2019_07_20_212057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -235,10 +235,14 @@ ActiveRecord::Schema.define(version: 2019_07_20_171719) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "page_color"
     t.string "url"
+    t.bigint "video_item_id"
+    t.bigint "video_item_mobile_id"
     t.index ["blockable_metadata"], name: "index_projects_on_blockable_metadata", using: :gin
     t.index ["media_item_id"], name: "index_projects_on_media_item_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["status"], name: "index_projects_on_status"
+    t.index ["video_item_id"], name: "index_projects_on_video_item_id"
+    t.index ["video_item_mobile_id"], name: "index_projects_on_video_item_mobile_id"
   end
 
   create_table "settings", id: :serial, force: :cascade do |t|
@@ -340,6 +344,8 @@ ActiveRecord::Schema.define(version: 2019_07_20_171719) do
   add_foreign_key "project_feature_block_slide4s", "project_feature_blocks"
   add_foreign_key "project_feature_blocks", "projects"
   add_foreign_key "projects", "media_items"
+  add_foreign_key "projects", "media_items", column: "video_item_id"
+  add_foreign_key "projects", "media_items", column: "video_item_mobile_id"
   add_foreign_key "video_blocks", "media_items"
   add_foreign_key "video_blocks", "media_items", column: "media_item_mobile_id"
 end

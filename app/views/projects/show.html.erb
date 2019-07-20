@@ -1,6 +1,14 @@
 <% cache [@project], expires_in: 1.day do %>
   <div class="image-hero">
-    <%= image_tag @project.media_item.attachment.url(:large) %>
+    <% if @project.video_item.present? %>
+      <%= lazy_video @project,
+                     video_item: @project.video_item,
+                     video_item_mobile: @project.video_item_mobile,
+                     poster_media_item: @project.media_item,
+                     autoplay: true %>
+    <% else %>
+      <%= image_tag @project.media_item.attachment.url(:large) %>
+    <% end %>
   </div>
   <div class="site-container mb-6">
     <div class="container-fluid">

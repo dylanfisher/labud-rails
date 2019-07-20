@@ -19,14 +19,16 @@
                 <%= f.input :title %>
                 <%= f.input :subtitle %>
                 <%= f.input :description, markdown: true %>
+                <%= f.input :metadata, markdown: true %>
                 <%= f.button :submit, class: 'btn-success' %>
               </div>
               <div class="col-sm-6">
                 <%= render 'admin/form_inputs/status', f: f, record: @project %>
                 <%= f.input :page_color, as: :color, default: '#ffffff' %>
                 <%= f.input :url, label: 'Website URL' %>
-                <%= f.input :metadata, markdown: true %>
-                <%= f.association :media_item, as: :image %>
+                <%= f.association :video_item, label: 'Video', remote: { path: admin_media_items_path(videos: true) } %>
+                <%= f.association :video_item_mobile, label: 'Video (mobile)', remote: { path: admin_media_items_path(videos: true) } %>
+                <%= f.association :media_item, as: :image, label: 'Featured image or poster image', hint: 'This is used as the poster image when the project has a video.' %>
               </div>
             </div>
           </div>
