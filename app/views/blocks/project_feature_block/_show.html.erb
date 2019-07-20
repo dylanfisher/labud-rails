@@ -5,7 +5,7 @@
         <% 4.times do |i| %>
           <div class="project-feature-block__column col-sm-3">
             <% block.send("media_item_#{i+1}s").each_with_index do |media_item, index| %>
-              <%= lazy_image media_item, background: true, size: :small, class: "project-feature-block__slide bg-image bg-image-square #{'active' if index.zero?}" %>
+              <%= content_tag :div, nil, class: "project-feature-block__slide bg-image bg-image-square #{'active' if index.zero?}", style: "background-image: url(#{media_item.attachment.url(:small)});" %>
             <% end %>
           </div>
         <% end %>
