@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.association :media_item, label: 'Video', remote: { path: admin_media_items_path(videos: true) } %>
+    <%= f.association :media_item_mobile, label: 'Video (mobile)', remote: { path: admin_media_items_path(videos: true) } %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.input :size, as: :select, collection: f.object.class.sizes.collect { |k, v| [k.titleize, k] }, include_blank: false %>
+    <%= f.input :autoplay %>
+  </div>
+</div>

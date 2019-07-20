@@ -32,4 +32,8 @@ body {
     max-height: 100%;
     padding: 100px 0 50px;
   }
+
+  @media (min-height: 730px) {
+    margin-bottom: 30px;
+  }
 }

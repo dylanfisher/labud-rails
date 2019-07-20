@@ -3,8 +3,6 @@
 (function() {
   var timer;
 
-  console.log('test');
-
   var animate = function($slide) {
     var $next = $slide.nextWrap();
 

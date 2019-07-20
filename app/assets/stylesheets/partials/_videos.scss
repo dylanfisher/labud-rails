@@ -1,0 +1,9 @@
+// Videos
+
+video {
+  width: 100%;
+
+  &:focus {
+    outline: 0;
+  }
+}

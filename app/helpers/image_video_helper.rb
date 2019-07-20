@@ -60,8 +60,8 @@ module ImageVideoHelper
 
   def lazy_video(block, options = {})
     data = options.delete(:data) || {}
-    poster_media_item = block.media_item
-    options.merge!(poster: poster_media_item.attachment.url(:large))
+    # poster_media_item = block.media_item
+    # options.merge!(poster: poster_media_item.attachment.url(:large))
     autoplay = options.fetch(:autoplay, block.try(:autoplay))
     controls = options.fetch(:controls, !autoplay)
     video_loop = options.fetch(:loop, autoplay)
@@ -74,8 +74,8 @@ module ImageVideoHelper
                 muted: autoplay,
                 loop: video_loop,
                 data: {
-                  src: (options.delete(:src) || block.video_asset.attachment.url),
-                  src_mobile: (options.delete(:src_mobile) || block.try(:video_asset_mobile).try(:attachment).try(:url)),
+                  src: (options.delete(:src) || block.media_item.attachment.url),
+                  src_mobile: (options.delete(:src_mobile) || block.try(:media_item_mobile).try(:attachment).try(:url)),
                   **data },
                 **options
     end
