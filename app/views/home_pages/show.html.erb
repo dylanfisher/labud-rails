@@ -6,7 +6,7 @@
                     class: 'row hero',
                       id: 'brush-stroke-canvas-form',
                       data: {
-                        color: session[:color] } } do |f| %>
+                        color: BrushStroke::COLORS.sample } } do |f| %>
         <div class="col-sm-12 text-center my-auto pt-4">
           <h1 class="jumbo-title mb-5">Labud is an identity design & development studio.</h1>
           <h2 class="small-title mb-1">Services</h2>
@@ -15,8 +15,10 @@
         <% @brush_strokes.each do |brush_stroke| %>
           <%= content_tag :div,
                           nil,
-                          class: 'brush-stroke',
-                          style: "top: #{brush_stroke.pos_y}%; left: #{brush_stroke.pos_x}%; background-color: #{brush_stroke.color};" %>
+                          class: 'previous-brush-stroke brush-stroke',
+                          style: brush_stroke.css_styles,
+                          data: {
+                            created_at: brush_stroke.created_at.to_i } %>
         <% end %>
       <% end %>
     </div>

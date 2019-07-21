@@ -1,4 +1,5 @@
 class BrushStroke < Forest::ApplicationRecord
+  store :styles, accessors: [:transform, :border_radius, :width, :height]
 
   COLORS = [
     '#FD7B69',
@@ -26,11 +27,19 @@ class BrushStroke < Forest::ApplicationRecord
     '#A8BCE4'
   ]
 
-  def self.color
-
-  end
-
   # def self.resource_description
   #   'Briefly describe this resource.'
   # end
+
+  def css_styles
+    [
+      "top: #{pos_y}%",
+      "left: #{pos_x}%",
+      "background-color: #{color}",
+      "border-radius: #{border_radius}",
+      "width: #{width}",
+      "height: #{height}",
+      "transform: #{transform}"
+    ].join('; ') + ';'
+  end
 end
