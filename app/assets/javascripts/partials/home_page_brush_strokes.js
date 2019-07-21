@@ -102,8 +102,9 @@
     });
 
     var $previousStrokes = $canvas.find('.previous-brush-stroke');
-    var $lastPreviousStroke = $previousStrokes.last();
+    var $lastPreviousStroke = $previousStrokes.first();
     var currentTime = Math.floor(new Date() / 1000);
+    var animationIndex = 0;
 
     var animateStroke = function($stroke) {
       var strokeTime = parseInt($stroke.attr('data-created-at'));
@@ -111,27 +112,27 @@
 
       currentTime = strokeTime;
 
-      var $nextStroke = $stroke.prev('.previous-brush-stroke');
+      var $nextStroke = $stroke.next('.previous-brush-stroke');
       var delay;
 
-      if ( timeDifference > 86400 ) {
-        delay = 4;
-      } else if ( timeDifference > 3600 ) {
-        delay = 3;
-      } else if ( timeDifference > 1800 ) {
-        delay = 2;
-      } else if ( timeDifference > 60 ) {
+      if ( timeDifference > 1800 ) {
         delay = 1;
+      } else if ( timeDifference > 60 ) {
+        delay = 0.75;
       } else if ( timeDifference > 30 ) {
         delay = 0.5;
       } else if ( timeDifference > 10 ) {
         delay = 0.25;
       } else if ( timeDifference > 5 ) {
         delay = 0.1;
-      } else if ( timeDifference > 2.5 ) {
+      } else if ( timeDifference > 1 ) {
         delay = 0.075;
       } else {
         delay = 0.05;
+      }
+
+      if ( animationIndex == 0 ) {
+        delay = 0;
       }
 
       window.setTimeout(function() {
@@ -139,6 +140,7 @@
 
         if ( $nextStroke.length ) {
           animateStroke($nextStroke);
+          animationIndex++;
         }
       }, delay * 1000);
     };

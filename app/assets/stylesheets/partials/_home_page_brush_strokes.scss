@@ -6,6 +6,15 @@
   .application-wrapper {
     padding-top: 0;
   }
+
+  .hero {
+    color: $white;
+  }
+
+  .hero__text {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .brush-stroke-canvas {
@@ -13,6 +22,8 @@
   cursor: pointer;
   width: 100%;
   user-select: none;
+  background-color: #24154C;
+  cursor: none;
 }
 
 .brush-stroke {
@@ -22,8 +33,9 @@
   background-color: transparent;
   transform: translate(-50%, -50%);
   transform-origin: top left;
-  z-index: -1;
+  z-index: 0;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  pointer-events: none;
 }
 
 .canvas-brush {
