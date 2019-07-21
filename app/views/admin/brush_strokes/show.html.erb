@@ -1,0 +1,22 @@
+<p>Find me in app/views/forest/brush_strokes/show.html.erb</p>
+
+<%# content_for :page_description, @brush_stroke.description if @brush_stroke.try(:description).present? %>
+
+<p>
+  <b>Pos X</b>
+  <%= @brush_stroke.pos_x %>
+</p>
+<p>
+  <b>Pos Y</b>
+  <%= @brush_stroke.pos_y %>
+</p>
+<p>
+  <b>Color</b>
+  <%= @brush_stroke.color %>
+</p>
+<p>
+  <b>Ip Address</b>
+  <%= @brush_stroke.ip_address %>
+</p>
+
+<%= render_blocks @brush_stroke %>

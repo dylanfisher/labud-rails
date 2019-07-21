@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :http_authenticate
+  before_action :set_session_brush_stroke_data
 
   private
+
+    def set_session_brush_stroke_data
+      session[:color] = session[:color].presence || BrushStroke::COLORS.sample
+    end
 
     def http_authenticate
       unless Rails.env.development?

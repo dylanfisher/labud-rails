@@ -1,16 +1,29 @@
-<div class="dark-color-scheme mb-7">
-  <div class="site-container">
-    <div class="container-fluid">
-      <div class="row hero">
-        <div class="col-sm-12 text-center my-auto pt-4">
-          <h1 class="jumbo-title mb-5">Labud is an identity design & development studio.</h1>
-          <h2 class="small-title mb-1">Services</h2>
-          <p class="mx-auto" style="max-width: 860px;">Brand & Identity, Creative & Art Direction, Site Design & Development, Illustration, Brand Strategy, E‑commerce Strategy, Packaging, Editorial and Publications, Illustration</p>
-        </div>
+<% cache [@page, BrushStroke.cache_key, 'brush_canvas'], expires_in: 1.day do %>
+  <div id="brush-stroke-canvas" class="brush-stroke-canvas mb-7">
+    <div class="site-container">
+      <div class="container-fluid">
+        <%= form_for BrushStroke.new,
+                     html: {
+                      class: 'row hero',
+                        id: 'brush-stroke-canvas-form',
+                        data: {
+                          color: session[:color] } } do |f| %>
+          <div class="col-sm-12 text-center my-auto pt-4">
+            <h1 class="jumbo-title mb-5">Labud is an identity design & development studio.</h1>
+            <h2 class="small-title mb-1">Services</h2>
+            <p class="mx-auto" style="max-width: 860px;">Brand & Identity, Creative & Art Direction, Site Design & Development, Illustration, Brand Strategy, E‑commerce Strategy, Packaging, Editorial and Publications, Illustration</p>
+          </div>
+          <% @brush_strokes.each do |brush_stroke| %>
+            <%= content_tag :div,
+                            nil,
+                            class: 'brush-stroke',
+                            style: "top: #{brush_stroke.pos_y}%; left: #{brush_stroke.pos_x}%; background-color: #{brush_stroke.color};" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <% cache [@page, 'blocks'], expires_in: 1.day do %>
   <%= render_blocks @page %>

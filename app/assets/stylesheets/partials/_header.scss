@@ -7,9 +7,9 @@
   // width: 100%;
   // z-index: 10;
 
-  .controller--home_pages & {
-    color: $white;
-  }
+  // .controller--home_pages & {
+  //   color: $white;
+  // }
 }
 
 .header__home-link,
@@ -33,13 +33,13 @@
   right: 60px;
 }
 
-.header__logo {
-  path {
-    .controller--home_pages & {
-      fill: $white;
-    }
-  }
-}
+// .header__logo {
+//   path {
+//     .controller--home_pages & {
+//       fill: $white;
+//     }
+//   }
+// }
 
 .header__logo-label {
   display: inline-block;

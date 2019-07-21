@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_20_212057) do
+ActiveRecord::Schema.define(version: 2019_07_20_222855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2019_07_20_212057) do
     t.index ["block_layout_id"], name: "index_block_slots_on_block_layout_id"
     t.index ["block_record_type", "block_record_id"], name: "index_block_slots_on_block_record_type_and_block_record_id"
     t.index ["block_type", "block_id"], name: "index_block_slots_on_block_type_and_block_id"
+  end
+
+  create_table "brush_strokes", force: :cascade do |t|
+    t.float "pos_x"
+    t.float "pos_y"
+    t.string "color"
+    t.string "ip_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "cache_records", id: :serial, force: :cascade do |t|

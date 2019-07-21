@@ -1,0 +1,54 @@
+<%= render 'admin/headers/index', records: @brush_strokes, model_name: 'BrushStroke' %>
+
+<div class="table-responsive">
+  <table class="forest-table table table-striped">
+    <thead>
+      <tr>
+        <% if BrushStroke.statusable? %>
+          <th></th>
+        <% end %>
+        <th><%= table_sorter title: 'ID', path: :admin_brush_strokes_path, scope: :by_id, default_order: :desc %></th>
+        <th>Pos X</th>
+        <th>Pos Y</th>
+        <th>Color</th>
+        <th>Ip Address</th>
+        <th><%= table_sorter title: 'Created&nbsp;at'.html_safe, path: :admin_brush_strokes_path, scope: :by_created_at, default_order: :desc %></th>
+        <th><%= table_sorter title: 'Updated&nbsp;at'.html_safe, path: :admin_brush_strokes_path, scope: :by_updated_at, default_order: :desc %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @brush_strokes.each do |brush_stroke| %>
+        <tr>
+          <% if BrushStroke.statusable? %>
+            <td><%= status_indicator brush_stroke %></td>
+          <% end %>
+          <td><%= brush_stroke.id %></td>
+          <td><%= brush_stroke.pos_x %></td>
+          <td><%= brush_stroke.pos_y %></td>
+          <td><%= brush_stroke.color %></td>
+          <td><%= brush_stroke.ip_address %></td>
+          <td><%= forest_date brush_stroke.created_at %></td>
+          <td><%= forest_date brush_stroke.updated_at %></td>
+          <td width="1"><%= link_to 'Edit', edit_admin_brush_stroke_path(brush_stroke), class: 'btn btn-xs btn-primary', role: 'button' %></td>
+          <td width="1">
+            <% if try('brush_stroke_path', brush_stroke) %>
+              <% if brush_stroke.respond_to?(:to_friendly_param) %>
+                <% param = brush_stroke.to_friendly_param %>
+              <% else %>
+                <% param = brush_stroke %>
+              <% end %>
+              <%= link_to 'Show', brush_stroke_path(param), class: 'btn btn-xs btn-info', role: 'button', data: { turbolinks: false } %>
+            <% else %>
+              <%= link_to 'Show', admin_brush_stroke_path(brush_stroke), class: 'btn btn-xs btn-info', role: 'button', data: { turbolinks: false } %>
+            <% end %>
+          </td>
+          <td width="1"><%= link_to 'Destroy', [:admin, brush_stroke], method: :delete, class: 'btn btn-xs btn-danger', role: 'button', data: { confirm: 'Are you sure you want to destroy this Brush Stroke?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @brush_strokes %>
