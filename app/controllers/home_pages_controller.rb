@@ -1,6 +1,6 @@
 class HomePagesController < PagesController
   def show
-    @brush_strokes = BrushStroke.recent.limit(300).reverse
+    @brush_strokes = BrushStroke.recent.limit(100).reverse
     @bg_color = BrushStroke::BG_COLORS.sample
 
     last_color_index = Rails.cache.fetch('last_color_index') { -1 }.to_i
