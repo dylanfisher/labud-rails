@@ -116,17 +116,17 @@
       var delay;
 
       if ( timeDifference > 21600 ) {
-        delay = 0.5;
-      } else if ( timeDifference > 3600 ) {
         delay = 0.375;
-      } else if ( timeDifference > 10 ) {
+      } else if ( timeDifference > 3600 ) {
         delay = 0.25;
-      } else if ( timeDifference > 5 ) {
+      } else if ( timeDifference > 10 ) {
         delay = 0.1;
-      } else if ( timeDifference > 1 ) {
+      } else if ( timeDifference > 5 ) {
         delay = 0.075;
-      } else {
+      } else if ( timeDifference > 1 ) {
         delay = 0.05;
+      } else {
+        delay = 0.025;
       }
 
       if ( animationIndex == 0 ) {
