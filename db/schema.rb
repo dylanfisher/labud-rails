@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_205842) do
+ActiveRecord::Schema.define(version: 2019_07_23_014445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,6 +163,21 @@ ActiveRecord::Schema.define(version: 2019_07_21_205842) do
     t.index ["slug"], name: "index_menus_on_slug", unique: true
   end
 
+  create_table "multi_column_text_block_items", force: :cascade do |t|
+    t.bigint "multi_column_text_block_id", null: false
+    t.integer "position"
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["multi_column_text_block_id"], name: "index_mult_col_text_block_items_on_mult_col_text_block_id"
+  end
+
+  create_table "multi_column_text_blocks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pages", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -183,6 +198,11 @@ ActiveRecord::Schema.define(version: 2019_07_21_205842) do
     t.index ["path"], name: "index_pages_on_path", unique: true
     t.index ["slug"], name: "index_pages_on_slug"
     t.index ["status"], name: "index_pages_on_status"
+  end
+
+  create_table "pebble_blocks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "project_feature_block_slide1s", force: :cascade do |t|
@@ -275,6 +295,12 @@ ActiveRecord::Schema.define(version: 2019_07_21_205842) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "text_blocks", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "title_blocks", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
@@ -345,6 +371,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_205842) do
   add_foreign_key "image_pair_blocks", "media_items"
   add_foreign_key "image_pair_blocks", "media_items", column: "media_item_two_id"
   add_foreign_key "large_image_blocks", "media_items"
+  add_foreign_key "multi_column_text_block_items", "multi_column_text_blocks"
   add_foreign_key "project_feature_block_slide1s", "media_items"
   add_foreign_key "project_feature_block_slide1s", "project_feature_blocks"
   add_foreign_key "project_feature_block_slide2s", "media_items"

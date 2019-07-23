@@ -1,0 +1,13 @@
+<div class="site-container">
+  <div class="container-fluid">
+    <div class="row">
+      <% item_length = block.multi_column_text_block_items.length %>
+      <% block.multi_column_text_block_items.each do |item| %>
+        <%= content_tag :div, class: "col-sm #{'text-center' if item_length > 2}" do %>
+          <%= content_tag :h2, md(item.title), class: 'bold-title' if item.title.present? %>
+          <%= content_tag :div, md(item.text), class: "#{item_length > 2 ? 'small-body-text' : ''} mt-3 markdown" if item.text.present? %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 // Home page brush strokes
 
+App.brushStroke = {};
+
 (function() {
+  var colors = <%= BrushStroke::COLORS.collect { |c| "#{c}" } %>;
+
   var getRandomInt = function(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -9,6 +13,19 @@
 
   var getRandBorder = function() {
     return getRandomInt(15, 85) + '%';
+  };
+
+  App.brushStroke.generate = function() {
+    var thisColor = colors[Math.floor(Math.random()*colors.length)];
+    var thisBorderRadius = [getRandBorder(), getRandBorder(), getRandBorder(), getRandBorder()].join(' ') + ' / ' + [getRandBorder(), getRandBorder(), getRandBorder(), getRandBorder()].join(' ');
+
+    return {
+      'backgroundColor': thisColor,
+      'borderRadius': thisBorderRadius,
+      'width': getRandomInt(80, 180) + 'px',
+      'height': getRandomInt(80, 180) + 'px',
+      'transform': 'rotate(' + getRandomInt(0, 360) + 'deg)'
+    };
   };
 
   $(document).on('turbolinks:load', function() {

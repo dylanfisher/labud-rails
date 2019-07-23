@@ -1,0 +1,14 @@
+<div class="sortable-field-set">
+  <%= f.simple_fields_for :multi_column_text_block_items do |record| %>
+    <%= render 'blocks/multi_column_text_block/multi_column_text_block_item_fields', f: record %>
+  <% end %>
+  <%= link_to_add_association 'Add column',
+                              f,
+                              :multi_column_text_block_items,
+                              partial: 'blocks/multi_column_text_block/multi_column_text_block_item_fields',
+                              class: 'btn btn-default',
+                              data: {
+                                association_insertion_node: 'this',
+                                association_insertion_method: 'before'
+                              } %>
+</div>

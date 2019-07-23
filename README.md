@@ -5,3 +5,6 @@
 - Newsletter signup and mailchimp list
 - Sitemap
 - Analytics
+- Favicon
+- Open graph image
+- 404/500 pages
