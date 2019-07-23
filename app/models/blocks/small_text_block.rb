@@ -12,8 +12,4 @@ class SmallTextBlock < BaseBlock
   def self.display_icon
     'glyphicon glyphicon-align-left'
   end
-
-  def css_class
-    'mt-5'
-  end
 end

@@ -13,6 +13,10 @@
   opacity: 1;
 }
 
+.forest-image-jump-fix {
+  overflow: visible;
+}
+
 .forest-image-jump-fix--image-jpeg {
   background-color: $image-placeholder-background-color;
 }

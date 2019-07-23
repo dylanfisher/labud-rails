@@ -1,5 +1,7 @@
 // Video Block
 
 .video-block {
-
+  video {
+    max-height: 100vh;
+  }
 }

@@ -1,9 +1,9 @@
 <div class="site-container">
   <div class="container-fluid">
     <%= link_to project_path(block.project.to_friendly_param), class: 'blank-link' do %>
-      <div class="row mb-4">
+      <div class="row small-gutters-xs mb-2 mb-sm-4">
         <% 4.times do |i| %>
-          <div class="project-feature-block__column col-sm-3">
+          <div class="project-feature-block__column col-6 col-sm-3 mb-3 mb-sm-0">
             <% block.send("media_item_#{i+1}s").each_with_index do |media_item, index| %>
               <%= content_tag :div, nil, class: "project-feature-block__slide bg-image bg-image-square #{'active' if index.zero?}", style: "background-image: url(#{media_item.attachment.url(:small)});" %>
             <% end %>

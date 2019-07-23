@@ -24,6 +24,12 @@
   user-select: none;
   background-color: #24154C;
   cursor: none;
+  overflow: hidden;
+
+  @include breakpoint(sm) {
+    padding-top: $header-offset-sm;
+    overflow: visible;
+  }
 }
 
 .brush-stroke {

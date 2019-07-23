@@ -16,12 +16,20 @@ body {
 
 .application-wrapper {
   padding-top: $header-offset;
+
+  @include breakpoint(sm) {
+    padding-top: $header-offset-sm;
+  }
 }
 
 .hero,
 .image-hero {
   margin-top: -$header-offset;
   text-align: center;
+
+  @include breakpoint(sm) {
+    padding-top: -$header-offset-sm;
+  }
 }
 
 .hero {
@@ -29,8 +37,10 @@ body {
 }
 
 .image-hero {
-  height: 90vh;
-  max-height: 700px;
+  @include breakpoint(sm) {
+    height: 90vh;
+    max-height: 700px;
+  }
 
   img,
   video {
