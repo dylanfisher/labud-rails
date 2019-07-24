@@ -70,7 +70,7 @@ $MonumentGrotesk-Bold: MonumentGrotesk-Bold, sans-serif;
 .small-title { @include small-title; }
 
 @mixin medium-title {
-  font-size: 24px;
+  font-size: 26px;
   letter-spacing: 0;
   line-height: 1.16;
   font-family: $ClassicoURWTOT-Regular;
@@ -82,14 +82,7 @@ $MonumentGrotesk-Bold: MonumentGrotesk-Bold, sans-serif;
 .medium-title { @include medium-title; }
 
 @mixin bold-title {
-  font-size: 26px;
-  letter-spacing: 0;
-  line-height: 1.16;
-  font-family: $ClassicoURW-Med;
-
-  @include breakpoint(sm) {
-    font-size: 36px;
-  }
+  @include medium-title;
 }
 .bold-title { @include bold-title; }
 

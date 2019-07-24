@@ -1,6 +1,8 @@
 // Pebble Block
 
 .pebble-block {
+  margin-top: -1rem;
+  margin-bottom: $block-margin - 1rem;
   text-align: center;
 }
 
