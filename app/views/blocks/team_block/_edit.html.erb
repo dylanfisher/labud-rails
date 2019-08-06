@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.association :media_item_1, as: :image %>
+    <%= f.input :title_1 %>
+    <%= f.input :url_1 %>
+    <%= f.input :column_1, markdown: true %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.association :media_item_2, as: :image %>
+    <%= f.input :title_2 %>
+    <%= f.input :url_2 %>
+    <%= f.input :column_2, markdown: true %>
+  </div>
+</div>
