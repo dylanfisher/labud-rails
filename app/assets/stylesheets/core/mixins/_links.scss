@@ -87,5 +87,11 @@
   padding: 0.2em 0.6em 0.3em;
   line-height: 1;
   letter-spacing: 0.025em;
+
+  @include breakpoint(sm) {
+    &:hover {
+      background-color: $brand-color;
+    }
+  }
 }
 .background-color-link { @include background-color-link; }
