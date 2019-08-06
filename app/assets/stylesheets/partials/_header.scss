@@ -1,11 +1,11 @@
 // Header
 
 .header {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 
   .controller--home_pages & {
     color: $white;
@@ -20,7 +20,7 @@
 }
 
 .header__home-link {
-  left: 60px;
+  left: 30px;
 
   &:hover {
     .header__logo-label {
@@ -30,7 +30,7 @@
 }
 
 .header__about-link {
-  right: 60px;
+  right: 30px;
 }
 
 .header__logo {

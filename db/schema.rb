@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_014445) do
+ActiveRecord::Schema.define(version: 2019_08_06_025935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "banner_blocks", force: :cascade do |t|
+    t.text "text"
+    t.string "link"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "base_blocks", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false

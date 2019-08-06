@@ -1,1 +1,5 @@
-<%= block.text.html_safe %>
+<% if block.text == '[LABUD_SWAN]' %>
+  <%= render 'blocks/code_block/swan' %>
+<% else %>
+  <%= block.text.html_safe %>
+<% end %>
