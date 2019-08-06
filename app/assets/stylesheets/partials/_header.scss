@@ -6,9 +6,14 @@
   left: 0;
   width: 100%;
   z-index: 10;
+  transition: color 0.4s;
 
   .controller--home_pages & {
     color: $white;
+  }
+
+  .controller--home_pages.has-scrolled-past-viewport & {
+    color: $black;
   }
 }
 
@@ -35,8 +40,14 @@
 
 .header__logo {
   path {
+    transition: fill 0.4s;
+
     .controller--home_pages & {
       fill: $white;
+    }
+
+    .controller--home_pages.has-scrolled-past-viewport & {
+      fill: $black;
     }
   }
 }
