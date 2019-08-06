@@ -13,22 +13,16 @@
 }
 
 @font-face {
-  font-family: 'MonumentGrotesk-Bold';
-  src: font-url('MonumentGrotesk-Bold.woff2') format('woff2'),
-       font-url('MonumentGrotesk-Bold.woff') format('woff');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'MonumentGrotesk-BoldItalic';
-  src: font-url('MonumentGrotesk-BoldItalic.woff2') format('woff2'),
-       font-url('MonumentGrotesk-BoldItalic.woff') format('woff');
-  font-style: italic;
-}
-
-@font-face {
   font-family: 'MonumentGrotesk-Regular';
   src: font-url('MonumentGrotesk-Regular.woff2') format('woff2'),
        font-url('MonumentGrotesk-Regular.woff') format('woff');
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'MonumentGrotesk-Regular';
+  src: font-url('MonumentGrotesk-Bold.woff2') format('woff2'),
+       font-url('MonumentGrotesk-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: bold;
 }
