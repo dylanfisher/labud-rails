@@ -11,6 +11,10 @@ class Project < Forest::ApplicationRecord
     'Labud\'s projects!'
   end
 
+  def to_page_title
+    [title, subtitle].reject(&:blank?).join(' - ')
+  end
+
   def pretty_website_url
     URI.parse(url).host.sub(/^www\./, '') unless url.blank?
   end

@@ -32,9 +32,9 @@ class BrushStroke < Forest::ApplicationRecord
 
   scope :recent, -> { where('brush_strokes.created_at > ?', Time.now - 24.hours).order(created_at: :desc) }
 
-  # def self.resource_description
-  #   'Briefly describe this resource.'
-  # end
+  def self.resource_description
+    'All of the pebbles left by visitors of our site.'
+  end
 
   def css_styles
     [

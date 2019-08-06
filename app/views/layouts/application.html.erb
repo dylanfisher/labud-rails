@@ -6,7 +6,7 @@
     <%= stylesheet_link_tag 'forest/application_public', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= jquery_include_tag %>
     <%= javascript_include_tag 'forest/application_public' %>
-    <% if Rails.env.production? && Setting.for(:google_analytics).present? %>
+    <% if !Rails.env.production? && Setting.for(:google_analytics).present? %>
       <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Setting.for(:google_analytics) %>"></script>
       <script>
         App.googleAnalyticsConfig = [];
