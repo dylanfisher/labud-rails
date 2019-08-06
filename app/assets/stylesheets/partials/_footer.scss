@@ -1,7 +1,8 @@
 // Footer
 
-.footer {
-  border-bottom: 6px solid $brand-color;
+.footer__inner {
+  background-color: $dark-blue;
+  color: $white;
 }
 
 .registration-form__input-wrapper {
@@ -17,7 +18,7 @@
 }
 
 .registration-form__button {
-  background-color: $black;
+  background-color: #7468FA;
   width: 22px;
   height: 22px;
   position: absolute;
@@ -31,7 +32,7 @@
   color: transparent;
 
   &:hover {
-    background-color: $brand-color;
+    background-color: $black;
   }
 }
 

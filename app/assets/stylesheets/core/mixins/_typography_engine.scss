@@ -2,7 +2,6 @@
 $ClassicoURWTOT-Regular: ClassicoURWTOT-Regular, serif;
 $ClassicoURW-Med: ClassicoURW-Med, serif;
 $MonumentGrotesk-Regular: MonumentGrotesk-Regular, sans-serif;
-$MonumentGrotesk-Bold: MonumentGrotesk-Bold, sans-serif;
 
 @mixin body-text {
   font-size: 17px;
@@ -27,7 +26,7 @@ $MonumentGrotesk-Bold: MonumentGrotesk-Bold, sans-serif;
   font-family: $MonumentGrotesk-Regular;
 
   @include breakpoint(sm) {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 .small-body-text { @include small-body-text; }

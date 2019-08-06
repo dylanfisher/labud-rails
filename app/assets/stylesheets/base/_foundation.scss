@@ -14,6 +14,11 @@ body {
   background-color: $black;
 }
 
+::selection {
+  background-color: $highlight-color;
+  color: $white;
+}
+
 .application-wrapper {
   padding-top: $header-offset;
 

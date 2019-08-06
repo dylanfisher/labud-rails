@@ -16,8 +16,8 @@
         <%= content_tag :h2, class: 'small-title mb-2' do %>
           <%= link_to md(block.project.title), project_path(block.project.to_friendly_param), class: 'blank-link' %>
         <% end %>
-        <%= content_tag :div, md(block.text), class: 'small-body-text mb-2' %>
-        <%= link_to 'View Case Study', project_path(block.project.to_friendly_param), class: 'caption highlight-link' %>
+        <%= content_tag :div, md(block.text), class: 'mb-2' %>
+        <%= link_to 'View Case Study', project_path(block.project.to_friendly_param), class: 'small-body-text default-link' %>
       </div>
     </div>
   </div>
