@@ -11,9 +11,9 @@
                       data: {
                         color: @color } } do |f| %>
         <div class="hero__text col-sm-12 text-center my-auto pt-4">
-          <h1 class="jumbo-title mb-5">Labud is an identity design & development studio.</h1>
+          <h1 class="jumbo-title mb-5"><%= md Setting.for(:home_tagline_title) %></h1>
           <h2 class="small-title mb-1">Services</h2>
-          <p class="mx-auto" style="max-width: 860px;">Brand & Identity, Creative & Art Direction, Site Design & Development, Illustration, Brand Strategy, E‑commerce Strategy, Packaging, Editorial and Publications, Illustration</p>
+          <p class="mx-auto" style="max-width: 860px;"><%= md Setting.for(:home_tagline_services) %></p>
         </div>
         <% @brush_strokes.each do |brush_stroke| %>
           <%= content_tag :div,
