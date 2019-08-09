@@ -25,10 +25,13 @@
   background-color: #24154C;
   cursor: none;
   overflow: hidden;
+  margin-bottom: 4.5rem;
+  transform: translate3d(0, 0, 0);
 
   @include breakpoint(sm) {
     padding-top: $header-offset-sm;
     overflow: visible;
+    margin-bottom: 6rem;
   }
 }
 

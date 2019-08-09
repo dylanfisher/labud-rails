@@ -20,8 +20,12 @@
 .header__home-link,
 .header__about-link {
   position: absolute;
-  top: 30px;
+  top: 15px;
   z-index: 10;
+
+  @include breakpoint(sm) {
+    top: 30px;
+  }
 }
 
 .header__home-link {
@@ -36,6 +40,11 @@
 
 .header__about-link {
   right: 30px;
+  margin-top: 5px;
+
+  @include breakpoint(sm) {
+    margin-top: 0.1em;
+  }
 }
 
 .header__logo {
@@ -54,6 +63,10 @@
 
 .header__logo-label {
   display: inline-block;
-  margin-top: 0.1em;
+  margin-top: 5px;
   margin-left: 10px;
+
+  @include breakpoint(sm) {
+    margin-top: 0.1em;
+  }
 }

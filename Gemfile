@@ -5,7 +5,7 @@ ruby '2.6.3'
 
 gem 'forest', git: 'https://github.com/dylanfisher/forest.git'
 
-gem 'rails', '~> 6.0.0.rc1'
+gem 'rails', '6.0.0.rc1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 6.0.0.beta3'
