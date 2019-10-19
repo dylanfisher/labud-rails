@@ -48,6 +48,16 @@
 }
 
 .header__logo {
+  width: 16.61px;
+  height: 18px;
+  vertical-align: baseline;
+  margin-top: 5px;
+
+  @include breakpoint(sm) {
+    width: 24px;
+    height: 26px;
+  }
+
   path {
     transition: fill 0.4s;
 
@@ -63,10 +73,9 @@
 
 .header__logo-label {
   display: inline-block;
-  margin-top: 5px;
-  margin-left: 10px;
+  margin-left: 4px;
 
   @include breakpoint(sm) {
-    margin-top: 0.1em;
+    margin-left: 6px;
   }
 }
