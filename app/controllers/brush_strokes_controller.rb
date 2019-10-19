@@ -7,6 +7,8 @@ class BrushStrokesController < ForestController
     authorize @brush_stroke
 
     @brush_stroke.save
+
+    head :ok
   end
 
   private
