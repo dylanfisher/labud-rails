@@ -11,16 +11,22 @@
 
 .registration-form__input {
   width: 100%;
-  box-shadow: 0 1px 10px 0 #4A58B0;
-  padding: 10px 20px;
+  padding: 0 0 5px 0;
   border: 0;
   outline: 0;
+  background: transparent;
+  color: white;
+  border-bottom: 1px solid white;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
 }
 
 .registration-form__button {
-  background-color: #7468FA;
-  width: 22px;
-  height: 22px;
+  background-color: $white;
+  width: 16px;
+  height: 16px;
   position: absolute;
   top: 50%;
   right: 10px;
@@ -29,11 +35,12 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 50%;
+  border: 0;
   color: transparent;
   padding: 0;
 
   &:hover {
-    background-color: $black;
+    background-color: $brand-color;
   }
 }
 
