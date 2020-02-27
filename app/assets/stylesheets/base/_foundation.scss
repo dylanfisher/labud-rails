@@ -33,7 +33,7 @@ body {
   text-align: center;
 
   @include breakpoint(sm) {
-    padding-top: -$header-offset-sm;
+    margin-top: -$header-offset-sm;
   }
 }
 
@@ -42,15 +42,17 @@ body {
 }
 
 .image-hero {
+  margin-bottom: 30px;
+
   @include breakpoint(sm) {
-    height: 90vh;
+    height: 100vh;
     max-height: 700px;
   }
 
   img,
   video {
     max-height: 100%;
-    padding: 100px 0 50px;
+    object-fit: cover;
   }
 
   @media (min-height: 730px) {
