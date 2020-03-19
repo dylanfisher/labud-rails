@@ -1,6 +1,6 @@
 class CollageBlockItem < ApplicationRecord
-  belongs_to :media_item, optional: true, touch: true
-  belongs_to :collage_block, optional: true, touch: true
+  belongs_to :media_item, touch: true
+  belongs_to :collage_block, touch: true
 
   def css_styles
     styles = []
