@@ -11,4 +11,12 @@ class CollageBlockItem < ApplicationRecord
     styles << "z-index: #{collage_z_index}"
     styles.join('; ')
   end
+
+  def size_to_use
+    if media_item.try(:gif?)
+      :original
+    else
+      :medium
+    end
+  end
 end

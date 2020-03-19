@@ -5,7 +5,7 @@
         <%= content_tag :div, class: 'collage-block__canvas', style: block.collage_canvas_styles do %>
           <% block.collage_block_items.each do |collage_block_item| %>
             <%= content_tag :div, class: 'collage-block__item', style: collage_block_item.css_styles do %>
-              <%= image_tag collage_block_item.media_item.attachment.url(:medium), class: 'collage-block__image' %>
+              <%= image_tag collage_block_item.media_item.attachment.url(collage_block_item.size_to_use), class: 'collage-block__image' %>
             <% end %>
           <% end %>
         <% end %>
