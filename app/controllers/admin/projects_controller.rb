@@ -50,7 +50,7 @@ class Admin::ProjectsController < Admin::ForestController
     def project_params
       # Add blockable params to the permitted attributes if this record is blockable `**BlockSlot.blockable_params`
       params.require(:project).permit(:slug, :status, :title, :subtitle, :description, :metadata, :media_item_id,
-        :page_color, :url, :video_item_id, :video_item_mobile_id, **BlockSlot.blockable_params)
+        :page_color, :url, :video_item_id, :video_item_mobile_id, :dark_featured_media, **BlockSlot.blockable_params)
     end
 
     def set_project

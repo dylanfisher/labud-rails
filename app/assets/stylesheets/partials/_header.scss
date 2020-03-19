@@ -8,11 +8,13 @@
   z-index: 10;
   transition: color 0.4s;
 
-  .controller--home_pages & {
+  .controller--home_pages &,
+  .inverse-header & {
     color: $white;
   }
 
-  .controller--home_pages.has-scrolled-past-viewport & {
+  .controller--home_pages.has-scrolled-past-viewport &,
+  .inverse-header.has-scrolled-past-viewport & {
     color: $black;
   }
 }
@@ -61,11 +63,13 @@
   path {
     transition: fill 0.4s;
 
-    .controller--home_pages & {
+    .controller--home_pages &,
+    .inverse-header & {
       fill: $white;
     }
 
-    .controller--home_pages.has-scrolled-past-viewport & {
+    .controller--home_pages.has-scrolled-past-viewport &,
+    .inverse-header.has-scrolled-past-viewport & {
       fill: $black;
     }
   }

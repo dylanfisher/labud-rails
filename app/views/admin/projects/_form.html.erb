@@ -29,6 +29,7 @@
                 <%= f.association :video_item, label: 'Video', remote: { path: admin_media_items_path(videos: true) } %>
                 <%= f.association :video_item_mobile, label: 'Video (mobile)', remote: { path: admin_media_items_path(videos: true) } %>
                 <%= f.association :media_item, as: :image, label: 'Featured image or poster image', hint: 'This is used as the poster image when the project has a video.' %>
+                <%= f.input :dark_featured_media, hint: 'Set this to true if the featured image or video is dark. This will make the header white when at the top of a project.' %>
               </div>
             </div>
           </div>

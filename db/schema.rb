@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_031824) do
+ActiveRecord::Schema.define(version: 2020_03_19_195510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -276,6 +276,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_031824) do
     t.string "url"
     t.bigint "video_item_id"
     t.bigint "video_item_mobile_id"
+    t.boolean "dark_featured_media", default: false, null: false
     t.index ["blockable_metadata"], name: "index_projects_on_blockable_metadata", using: :gin
     t.index ["media_item_id"], name: "index_projects_on_media_item_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
