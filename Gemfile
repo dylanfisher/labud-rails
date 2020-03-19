@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.0'
 
 gem 'forest', git: 'https://github.com/dylanfisher/forest.git'
 
@@ -15,6 +15,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'autoprefixer-rails'
 gem 'dalli'
 gem 'rack-cors', require: 'rack/cors'
+
+gem 'sprockets', '~> 3.0'
 
 group :development do
   gem 'listen'
