@@ -9,7 +9,6 @@ class HomePagesController < PagesController
     @brush_strokes = BrushStroke.for_date(@date).limit(500).reverse
     @bg_color = BrushStroke::BG_COLORS.sample
 
-
     last_color_index = Rails.cache.fetch('last_color_index') { -1 }.to_i
 
     if Rails.env.development?
