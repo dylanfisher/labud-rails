@@ -4,10 +4,20 @@
   margin-bottom: $block-margin + 1rem;
 }
 
+.project-feature-block__column {
+  position: relative;
+}
+
 .project-feature-block__slide {
-  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
   &.active {
-    display: block;
+    visibility: visible;
+    position: static;
   }
 }
