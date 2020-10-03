@@ -19,7 +19,6 @@
 
 .brush-stroke-canvas {
   padding-top: $header-offset;
-  cursor: pointer;
   width: 100%;
   user-select: none;
   background-color: #24154C;
@@ -33,6 +32,10 @@
     overflow: visible;
     margin-bottom: 6rem;
   }
+}
+
+.brush-stroke-canvas--disabled {
+  cursor: auto;
 }
 
 .brush-stroke {
@@ -53,4 +56,31 @@
 
 .previous-brush-stroke {
   display: none;
+}
+
+.canvas-navigation__element {
+  position: absolute;
+  bottom: 30px;
+  z-index: 1;
+  background-color: $light-gray;
+  box-shadow: -2px -2px 19px 0 rgba(16,9,63,0.48);
+  border-radius: 10px;
+}
+
+.canvas-navigation__element--date {
+  left: 30px;
+  padding: 6px 10px;
+}
+
+.canvas-navigation__element--nav {
+  right: 30px;
+}
+
+.canvas-navigation__element--nav__previous,
+.canvas-navigation__element--nav__next {
+  padding: 6px 10px;
+}
+
+.canvas-navigation__element--nav__previous {
+  border-right: 1px solid #B1B4BA;
 }

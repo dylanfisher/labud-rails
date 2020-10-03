@@ -1,7 +1,14 @@
 class HomePagesController < PagesController
   def show
-    @brush_strokes = BrushStroke.recent.limit(500).reverse
+    begin
+      @date = Date.strptime(params[:date].to_s, '%m-%d-%y')
+    rescue Date::Error => e
+      @date = Date.current
+    end
+
+    @brush_strokes = BrushStroke.for_date(@date).limit(500).reverse
     @bg_color = BrushStroke::BG_COLORS.sample
+
 
     last_color_index = Rails.cache.fetch('last_color_index') { -1 }.to_i
 

@@ -1,11 +1,7 @@
 class BrushStrokesController < ForestController
   def create
     @brush_stroke = BrushStroke.new(brush_stroke_params)
-
     @brush_stroke.ip_address = request.remote_ip
-
-    authorize @brush_stroke
-
     @brush_stroke.save
 
     head :ok

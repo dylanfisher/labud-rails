@@ -1,6 +1,6 @@
 <%= content_tag :div,
                 id: 'brush-stroke-canvas',
-                class: 'brush-stroke-canvas',
+                class: "brush-stroke-canvas #{'brush-stroke-canvas--disabled' if @date != Date.today}",
                 style: "background-color: #{@bg_color};" do %>
   <div class="container-fluid">
     <%= form_for BrushStroke.new,
@@ -25,6 +25,14 @@
     <% end %>
   </div>
 <% end %>
+<div class="canvas-navigation__element canvas-navigation__element--date d-flex align-items-center">
+  <div class="canvas-navigation__pebble"></div>
+  <%= content_tag :div, @date.strftime('%m/%d/%y'), class: 'small-body-text ml-2' %>
+</div>
+<div class="canvas-navigation__element canvas-navigation__element--nav d-flex ml-auto">
+  <%= link_to '←', root_path(date: (@date - 1.day).strftime('%m-%d-%y')), class: 'canvas-navigation__element--nav__previous blank-link small-body-text', data: { turbolinks: false } %>
+  <%= link_to '→', root_path(date: (@date + 1.day).strftime('%m-%d-%y')), class: 'canvas-navigation__element--nav__next blank-link small-body-text', data: { turbolinks: false } %>
+</div>
 
 <% cache [@page, 'blocks'], expires_in: 1.day do %>
   <%= render_blocks @page %>

@@ -15,17 +15,27 @@ App.brushStroke = {};
     return getRandomInt(15, 85) + '%';
   };
 
-  App.brushStroke.generate = function() {
+  App.brushStroke.generate = function(options) {
+    options = options ? options : {};
+    var minWidth = options.minWidth || 80;
+    var maxWidth = options.maxWidth || 180;
+    var minHeight = options.minHeight || 80;
+    var maxHeight = options.maxHeight || 180;
     var thisColor = colors[Math.floor(Math.random()*colors.length)];
     var thisBorderRadius = [getRandBorder(), getRandBorder(), getRandBorder(), getRandBorder()].join(' ') + ' / ' + [getRandBorder(), getRandBorder(), getRandBorder(), getRandBorder()].join(' ');
 
     return {
       'backgroundColor': thisColor,
       'borderRadius': thisBorderRadius,
-      'width': getRandomInt(80, 180) + 'px',
-      'height': getRandomInt(80, 180) + 'px',
+      'width': getRandomInt(minWidth, maxWidth) + 'px',
+      'height': getRandomInt(minHeight, maxHeight) + 'px',
       'transform': 'rotate(' + getRandomInt(0, 360) + 'deg)'
     };
+  };
+
+  var disableEvents = function($canvas, $canvasBrush) {
+    $canvas.off('click.brushStroke mousemove.brushStroke mouseenter.brushStroke mouseleave.brushStroke');
+    $canvasBrush.remove();
   };
 
   $(document).on('turbolinks:load', function() {
@@ -162,9 +172,21 @@ App.brushStroke = {};
 
     animateStroke($lastPreviousStroke);
 
+    $('.canvas-navigation__pebble').each(function() {
+      $(this).css( App.brushStroke.generate({
+        minWidth: 16,
+        maxWidth: 26,
+        minHeight: 20,
+        maxHeight: 20,
+      }) );
+    });
+
+    if ( $canvas.hasClass('brush-stroke-canvas--disabled') ) {
+      disableEvents($canvas, $canvasBrush);
+    }
+
     $(document).one('turbolinks:before-cache', function() {
-      $canvas.off('click.brushStroke mousemove.brushStroke mouseenter.brushStroke mouseleave.brushStroke');
-      $canvasBrush.remove();
+      disableEvents($canvas, $canvasBrush);
     });
   });
 })();

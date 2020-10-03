@@ -31,6 +31,7 @@ class BrushStroke < Forest::ApplicationRecord
   ]
 
   scope :recent, -> { where('brush_strokes.created_at > ?', Time.now - 24.hours).order(created_at: :desc) }
+  scope :for_date, -> (date) { where(created_at: date.beginning_of_day..date.end_of_day).order(created_at: :desc) }
 
   def self.resource_description
     'All of the pebbles left by visitors of our site.'
