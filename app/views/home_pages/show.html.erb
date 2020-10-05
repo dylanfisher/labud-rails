@@ -1,6 +1,6 @@
 <%= content_tag :div,
                 id: 'brush-stroke-canvas',
-                class: "brush-stroke-canvas #{'brush-stroke-canvas--disabled' if @date.to_date != Date.today}",
+                class: "brush-stroke-canvas #{'brush-stroke-canvas--disabled' if @date.to_date != Date.current}",
                 style: "background-color: #{@bg_color};" do %>
   <div class="container-fluid">
     <%= form_for BrushStroke.new,

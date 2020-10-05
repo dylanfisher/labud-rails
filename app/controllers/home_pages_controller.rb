@@ -1,7 +1,7 @@
 class HomePagesController < PagesController
   def show
     begin
-      @date = Date.strptime(params[:date].to_s, '%m-%d-%y').in_time_zone
+      @date = Date.strptime(params[:date].to_s, '%m-%d-%y')
     rescue Date::Error => e
       @date = Date.current
     end
