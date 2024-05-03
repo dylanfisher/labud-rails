@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_195510) do
+ActiveRecord::Schema.define(version: 2024_05_03_180033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -305,8 +305,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_195510) do
   end
 
   create_table "team_blocks", force: :cascade do |t|
-    t.bigint "media_item_1_id", null: false
-    t.bigint "media_item_2_id", null: false
+    t.bigint "media_item_1_id"
+    t.bigint "media_item_2_id"
     t.string "title_1"
     t.string "title_2"
     t.string "url_1"

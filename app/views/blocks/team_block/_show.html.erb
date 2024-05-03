@@ -5,9 +5,11 @@
         <div class="row">
           <div class="team-block__col-1 col-sm-6 mb-5 mb-sm-0">
             <div class="row">
-              <div class="col-sm-11 mb-4">
-                <%= lazy_image block.media_item_1, size: :medium %>
-              </div>
+              <% if block.media_item_1.present? %>
+                <div class="col-sm-11 mb-4">
+                  <%= lazy_image block.media_item_1, size: :medium %>
+                </div>
+              <% end %>
               <div class="col-sm-10">
                 <%= content_tag :div, block.title_1, class: 'medium-title' %>
                 <%= link_to block.url_1, class: 'blank-link' do %>
@@ -19,9 +21,11 @@
           </div>
           <div class="team-block__col-2 col-sm-6">
             <div class="row">
-              <div class="col-sm-11 mb-4">
-                <%= lazy_image block.media_item_2, size: :medium %>
-              </div>
+              <% if block.media_item_2.present? %>
+                <div class="col-sm-11 mb-4">
+                  <%= lazy_image block.media_item_2, size: :medium %>
+                </div>
+              <% end %>
               <div class="col-sm-10">
                 <%= content_tag :div, block.title_2, class: 'medium-title' %>
                 <%= link_to block.url_2, class: 'blank-link' do %>

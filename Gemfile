@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.8'
 
 gem 'forest', git: 'https://github.com/dylanfisher/forest.git'
 
@@ -20,9 +20,5 @@ gem 'sprockets', '~> 3.0'
 
 group :development do
   gem 'listen'
-  gem 'spring'
-  gem 'spring-watcher-listen'
   gem 'pry-rails'
-  gem 'guard'
-  gem 'guard-livereload', require: false
 end
